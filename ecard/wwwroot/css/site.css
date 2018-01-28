@@ -9,6 +9,13 @@ h1{
     text-align:center;
 }
 
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:;
+}
+
 
 .photo{
     width: ;
@@ -22,8 +29,6 @@ h1{
 .center-block{
 
 }
-
-
 
 
 
