@@ -9,6 +9,7 @@ namespace ecard.Pages
 {
     public class FormsModel : PageModel
     {
+
         public void OnGet()
         {
 
