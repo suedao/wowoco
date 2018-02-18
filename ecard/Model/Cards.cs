@@ -7,5 +7,8 @@ namespace ecard.Model
 {
     public class Cards
     {
+
+
+
     }
 }
