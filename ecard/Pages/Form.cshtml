@@ -1,5 +1,6 @@
 ﻿@page
-@model FormModel
+@model ecard.Model.Greetings;
+
 @{
     ViewBag.meta_title = "Form";
     ViewBag.meta_keywords = "";
@@ -8,70 +9,59 @@
 
 
 <div class="container">
-    <h3> Send an e-Card to a Your Friend </h3>
+    <h3> Send an e-Card to Your Friend </h3>
 
-    <form>
+    <form method="post">
         <div class="form-group">
-            <label for="friendsname" sr-only="friendsname">
-                Friend's Name:
-            </label>
-            <input name="friendsname" type="text" class="form-control" />
+            <label asp-for="@Model.friendname"></label>
+            <input asp-for="@Model.friendname" type="text" class="form-control" />
+            <span asp-validation-for="@Model.friendname" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label for="friendsemail" sr-only="friendsemail">
-                Friend's Email:
-            </label>
-            <input name="friendsemail" type="text" class="form-control" />
+            <label asp-for="@Model.friendemail"></label>
+            <input asp-for="@Model.friendemail" type="email" class="form-control" />
+            <span asp-validation-for="@Model.friendemail" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label for="subject" sr-only="subject">
-                Subject:
-            </label>
-            <input name="subject" type="text" class="form-control" />
+            <label asp-for="@Model.subject"></label>
+            <input asp-for="@Model.subject" type="text" class="form-control" />
+            <span asp-validation-for="@Model.subject" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label for="message" sr-only="message">
-                Message:
-            </label>
-            <textarea name="message" class="form-control" maxlength="50">
+            <label asp-for="@Model.message"></label>
+            <textarea asp-for="@Model.message" class="form-control" maxlength="150">
             </textarea>
-            Max characters = 50
-
             <div class="countdown"></div>
-            <br />
+            <span asp-validation-for="@Model.message" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label for="sendername" sr-only="sendername">
-                Sender's Name:
-            </label>
-            <input name="sendersname" type="text" class="form-control" />
+            <label asp-for="@Model.sendername"></label>
+            <input asp-for="@Model.sendername" type="text" class="form-control" />
+            <span asp-validation-for="@Model.sendername" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label for="senderemail" sr-only="senderemail">
-                Sender's Email:
-            </label>
-            <input name="sendersemail" type="text" class="form-control" />
+            <label asp-for="@Model.senderemail"></label>
+            <input asp-for="@Model.senderemail" type="email" class="form-control" />
+            <span asp-validation-for="@Model.senderemail" class="text-danger"></span>
         </div>
+
+        <div class="g-recaptcha" data-sitekey="6LfHqEUUAAAAAMnaom8RJJPKTrutcg24BVol_6Pr">
+        </div>
+
+        <br />
 
         <button type="button" class="btn btn-primary" sr-only="submit">
             Submit
         </button>
 
     </form>
-    <br />
-
-    <div class="g-recaptcha" data-sitekey="6LfHqEUUAAAAAMnaom8RJJPKTrutcg24BVol_6Pr">
-    </div>
 
 </div>
-
-<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 
 <!--BEGIN TEXTAREA AUTOSIZE-->
 
@@ -83,9 +73,10 @@
 
     <!--END TEXTAREA AUTOSIZE-->
 
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 
     <script src="~/lib/textarea-countdown.js"></script>
-
     <script src='https://www.google.com/recaptcha/api.js'></script>
 }
 
